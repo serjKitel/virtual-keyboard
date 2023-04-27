@@ -5,7 +5,9 @@
 }
 
 html {
+    font-size: 10px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .main {
@@ -18,6 +20,8 @@ html {
 }
 
 .container {
+    width: 90rem;
+    height: 70rem;
     display: flex;
     flex-direction: column;
 }
@@ -25,31 +29,92 @@ html {
 h1 {
     text-align: center;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 3rem;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .textarea {
+    height: 25%;
+    width: 100%;
     align-self: center;
     background-color: #fff;
     border: 2px solid #000000;
-    box-shadow: inset 0 0 1em #767a7a;
     border-radius: 5px;
     font-size: 1.5rem;
     color: #000000;
     padding: 1rem;
     white-space: pre-wrap;
     outline: none;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .keyboard {
     width: 100%;
+    min-width: 87rem;
+    height: 43%;
     background-color: #164cc0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.6rem;
     padding: 1rem;
     border-radius: 5px;
-    box-shadow: inset 0 0 1em #00123a;
     justify-content: center;
+}
+
+.keyboard__key {
+    width: 5rem;
+    height: 5rem;
+    background-color: #22508d;
+    color: #ffffff;
+    border: #ffffff 1px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+
+.keyboard__key:hover {
+    background-color: #062853;
+    cursor: pointer;
+}
+
+.key_backspace {
+    width: 12rem;
+}
+
+.key_tab-del {
+    width: 5.6rem;
+}
+
+.key_caps {
+    width: 9rem;
+}
+
+.key_shift-left {
+    width: 10.6rem;
+}
+
+.key_shift-right {
+    width: 11.7rem;
+}
+
+.key_enter {
+    width: 13.4rem;
+}
+
+.key_ctrl-alt {
+    width: 6.2rem;
+}
+
+.key_space {
+    width: 35rem;
+}
+
+.key_arrow {
+    width: 5rem;
+    font-size: 1.5rem;
 }
 
