@@ -151,6 +151,20 @@ class VirtualKeyboard {
         h1.innerHTML = `Virtual Keyboard`;
         container.appendChild(h1);
 
+        const keyboardInfo = document.createElement("div");
+        keyboardInfo.classList.add("keyboard_info");
+        container.appendChild(keyboardInfo);
+
+        const createInfo = document.createElement("p");
+        createInfo.innerHTML = `The keyboard was created in Windows`;
+        createInfo.classList.add("keyboard_text-info");
+        keyboardInfo.appendChild(createInfo);
+        
+        const changeLangKeys = document.createElement("p");
+        changeLangKeys.innerHTML = `Press <b>left Shift</b> + <b>Alt</b> to change language (Eng or Ru)`;
+        changeLangKeys.classList.add("keyboard_text-info");
+        keyboardInfo.appendChild(changeLangKeys);
+
         this.textarea = document.createElement("textarea");
         this.textarea.classList.add("textarea");
         this.textarea.setAttribute("id", `textarea`);
@@ -202,20 +216,19 @@ class VirtualKeyboard {
             if (keyCode.includes("Arrow")) keyboardKey.classList.add("key_arrow");
             if (keyCode === "ShiftLeft") keyboardKey.classList.add("key_shift-left");
             if (keyCode === "ShiftRight") keyboardKey.classList.add("key_shift-right");
-            
+
             this.keyboard.appendChild(keyboardKey);
 
             if (
-                keyCode === "Backquote" ||
                 keyCode.includes("Digit") ||
                 keyCode === "Minus" ||
                 keyCode === "Equal"
-              ) {
+            ) {
                 const shiftSymbol = document.createElement("div");
                 shiftSymbol.innerHTML = `${this.keyboardLang[keyCode].valueShift}`;
                 shiftSymbol.classList.add("keyboard__key_shift-symbol");
                 keyboardKey.appendChild(shiftSymbol);
-              }
+            }
 
             if (
                 keyCode === "Backspace" ||
@@ -312,7 +325,7 @@ class VirtualKeyboard {
         } else if (keyCode === "ArrowDown") {
             let strPos;
             if (this.textarea.value[inputEnd] === "\n")
-            strPos = this.textarea.value.lastIndexOf("\n", inputEnd - 1);
+                strPos = this.textarea.value.lastIndexOf("\n", inputEnd - 1);
             else strPos = this.textarea.value.lastIndexOf("\n", inputEnd);
             let curStrLength;
             let nextStrLength;
@@ -357,16 +370,16 @@ class VirtualKeyboard {
             !keyCode.includes("Alt") &&
             !keyCode.includes("Meta")
         ) {
-                if (!this.flagCaps) {
-                    newSymbol = value;
-                } else {
-                    newSymbol = value.toUpperCase();
-                }
-                if (keyShift === true) newSymbol = valueShift;
-                inputText =
-                    this.textarea.value.substring(0, inputStart) +
-                    newSymbol +
-                    this.textarea.value.substring(inputEnd);
+            if (!this.flagCaps) {
+                newSymbol = value;
+            } else {
+                newSymbol = value.toUpperCase();
+            }
+            if (keyShift === true) newSymbol = valueShift;
+            inputText =
+                this.textarea.value.substring(0, inputStart) +
+                newSymbol +
+                this.textarea.value.substring(inputEnd);
 
             this.textarea.value = inputText;
             this.textarea.focus();
@@ -408,7 +421,7 @@ class VirtualKeyboard {
             if (keyCode !== "CapsLock") event.target.classList.remove("key_active");
         };
     }
-    
+
     updateKeyboard() {
         this.keyboard.innerHTML = "";
     }
