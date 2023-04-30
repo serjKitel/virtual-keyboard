@@ -206,6 +206,18 @@ class VirtualKeyboard {
             this.keyboard.appendChild(keyboardKey);
 
             if (
+                keyCode === "Backquote" ||
+                keyCode.includes("Digit") ||
+                keyCode === "Minus" ||
+                keyCode === "Equal"
+              ) {
+                const shiftSymbol = document.createElement("div");
+                shiftSymbol.innerHTML = `${this.keyboardLang[keyCode].valueShift}`;
+                shiftSymbol.classList.add("keyboard__key_shift-symbol");
+                keyboardKey.appendChild(shiftSymbol);
+              }
+
+            if (
                 keyCode === "Backspace" ||
                 keyCode === "Delete" ||
                 keyCode === "Enter" ||

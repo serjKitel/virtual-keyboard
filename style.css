@@ -63,6 +63,7 @@ h1 {
 }
 
 .keyboard__key {
+    position: relative;
     width: 5rem;
     height: 5rem;
     background-color: #22508d;
@@ -75,6 +76,16 @@ h1 {
     font-size: 1.5rem;
     transition: 0.3s;
 }
+
+.keyboard__key_shift-symbol {
+    position: absolute;
+    right: 0.4rem;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    justify-self: flex-end;
+    align-self: flex-start;
+    padding-left: 0.1rem;
+  }
 
 .keyboard__key:hover {
     background-color: #062853;
@@ -128,3 +139,4 @@ h1 {
     flex-basis: 100%;
     height: 0;
 }
+
